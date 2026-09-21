@@ -1,6 +1,20 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Barlow_Condensed, Inter } from 'next/font/google'
 import './globals.css'
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+  variable: '--font-display',
+  display: 'swap',
+})
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'ICAQ | Cursos y carreras prácticas en Quilmes',
@@ -11,5 +25,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { colorScheme: 'light', themeColor: '#761523', userScalable: true }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es" className="bg-background"><body className="antialiased">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
+  return <html lang="es" className={`bg-background ${barlowCondensed.variable} ${inter.variable}`}><body className="antialiased">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }
