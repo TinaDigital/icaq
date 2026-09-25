@@ -323,8 +323,8 @@ export default function Page() {
           <h1>Formate en ICAQ.<br /><em>Empezá ahora.</em></h1>
           <p className="hero-lead">Cursos y carreras prácticas para convertir tu interés por los autos, las motos y los oficios en una habilidad concreta.</p>
           <div className="hero-actions">
-            <button className="button button-primary" onClick={() => scrollTo('propuestas')}>Ver próximos comienzos <ArrowRight size={18} /></button>
-            <button className="text-button" onClick={() => scrollTo('quienes-somos')}>Conocé ICAQ <span>↓</span></button>
+            <button className="button button-primary hero-btn-main" onClick={() => scrollTo('propuestas')}>Ver cursos y carreras <ArrowRight size={17} /></button>
+            <button className="text-button hero-btn-secondary" onClick={() => scrollTo('quienes-somos')}>Conocé ICAQ <span>↓</span></button>
           </div>
           <div className="hero-proof"><span className="proof-mark"><Check size={16} /></span><span>Presencial · Práctico · Quilmes</span></div>
         </div>
