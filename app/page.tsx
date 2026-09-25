@@ -12,59 +12,169 @@ type Course = {
 }
 const courses: Course[] = [
   {
-    title: 'Electricidad e inyección automotriz', type: 'Curso', start: '19 oct 2026', startSort: '2026-10-19',
-    duration: '3 meses', days: 'Lunes', schedule: '9 a 12:30 / 18:30 a 21 h',
-    price: '$109.900', enrollment: '$55.000', badge: 'Próximo', aval: 'CAM',
-    description: 'Aprendé a diagnosticar y reparar fallas eléctricas y en sistemas de inyección de vehículos modernos. Trabajás con escáner, multímetro y situaciones reales de taller desde el primer día.'
+    title: 'Introducción a la mecánica automotriz',
+    type: 'Curso',
+    start: '19 oct 2026',
+    startSort: '2026-10-19',
+    duration: '3 meses',
+    days: 'Lunes',
+    schedule: '9 a 12:30 h / 18 a 22 h',
+    price: '$129.000',
+    enrollment: '$55.000',
+    badge: 'Próximo',
+    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    description: 'Formate desde cero en mecánica automotriz y aprendé a comprender el funcionamiento de los principales sistemas de un vehículo. Incorporá conocimientos prácticos para realizar mantenimiento preventivo, detectar fallas y dar tus primeros pasos en el mundo de la mecánica.'
   },
   {
-    title: 'Inyección de motos y camiones', type: 'Curso', start: '20 oct 2026', startSort: '2026-10-20',
-    duration: '3 meses', days: 'Lunes', schedule: '9 a 12:30 / 18:30 a 21 h',
-    price: '$159.000', enrollment: '$55.000', badge: 'Próximo', aval: 'CAM',
-    description: 'Formación específica en sistemas de inyección electrónica para motos y camiones. Diagnóstico por software, sensores y actuadores con práctica intensiva en banco.'
+    title: 'Introducción a la mecánica de motos',
+    type: 'Curso',
+    start: '20 oct 2026',
+    startSort: '2026-10-20',
+    duration: '3 meses',
+    days: 'Martes',
+    schedule: '9 a 12:30 h / 18:30 a 22 h',
+    price: '$129.000',
+    enrollment: '$55.000',
+    badge: 'Próximo',
+    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    description: 'Iniciate en la mecánica de motocicletas y aprendé de forma práctica sobre motores de 2 y 4 tiempos, transmisión, embrague, frenos, suspensión, carburación y sistemas eléctricos. Incorporá conocimientos y herramientas para realizar controles y mantenimiento básico de tu propia moto.'
   },
   {
-    title: 'Carrera de autos', type: 'Carrera', start: '22 oct 2026', startSort: '2026-10-22',
-    duration: '1 año', days: 'Martes', schedule: '9 a 12:30 / 18:30 a 21 h',
-    price: '$300.000', enrollment: '$165.000', badge: 'Cupos abiertos',
-    description: 'Formación integral en mecánica automotriz: motor, transmisión, frenos, suspensión, electricidad e inyección. Al finalizar tenés las herramientas para trabajar en un taller o emprender por tu cuenta.'
+    title: 'Electricidad e inyección automotriz',
+    type: 'Curso',
+    start: '21 oct 2026',
+    startSort: '2026-10-21',
+    duration: '3 meses',
+    days: 'Miércoles',
+    schedule: '9 a 12:30 h / 18:30 a 22 h',
+    price: '$109.900',
+    enrollment: '$55.000',
+    badge: 'Próximo',
+    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    description: 'Especializate en electricidad, inyección y diagnóstico automotriz en solo 4 meses. Aprendé a interpretar circuitos, medir señales y detectar fallas utilizando tester, escáner, sonda lógica y osciloscopio.'
   },
   {
-    title: 'Carrera de motos', type: 'Carrera', start: '24 oct 2026', startSort: '2026-10-24',
-    duration: '1 año', days: 'Sábados y domingos', schedule: '9 a 18 h / 9 a 13 h',
-    price: '$300.000', enrollment: '$150.000', badge: 'Cupos abiertos',
-    description: 'Capacitación completa en mecánica de motos: motor 2T y 4T, electricidad, inyección y carburación. Ideal para quienes quieren especializarse o montar su propio servicio técnico.'
+    title: 'Electricidad e inyección de motos',
+    type: 'Curso',
+    start: '22 oct 2026',
+    startSort: '2026-10-22',
+    duration: '3 meses',
+    days: 'Jueves',
+    schedule: '9 a 13 h / 18 a 22 h',
+    price: '$159.000',
+    enrollment: '$55.000',
+    badge: 'Próximo',
+    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    description: 'Formate en un curso intensivo y aprendé a comprender, diagnosticar y trabajar con los sistemas eléctricos y electrónicos de las motocicletas modernas. Incorporá conocimientos prácticos para detectar fallas, realizar controles y mejorar su funcionamiento, con una capacitación orientada al mundo laboral.'
   },
   {
-    title: 'Introducción a la mecánica automotriz', type: 'Curso', start: '7 nov 2026', startSort: '2026-11-07',
-    duration: '2 días', days: 'Sábado', schedule: '9 a 13 / 14 a 18 h',
-    price: '$129.000', enrollment: '$55.000', badge: 'Ideal para empezar', aval: 'CAM',
-    description: 'Un fin de semana intensivo para dar tu primer contacto real con el motor. Aprendés nociones básicas de funcionamiento, mantenimiento y diagnóstico sin necesitar ninguna experiencia previa.'
+    title: 'Diagnóstico de Camiones',
+    type: 'Curso',
+    start: '24 y 25 oct 2026',
+    startSort: '2026-10-24',
+    duration: '2 días',
+    days: 'Sábado y domingo',
+    schedule: 'Sáb 9 a 18 h · Dom 9 a 13 h',
+    price: 'A consultar',
+    enrollment: 'A consultar',
+    badge: 'Intensivo',
+    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    description: 'Formate en un curso intensivo y especializate en el diagnóstico de vehículos pesados. Aprendé a interpretar sistemas electrónicos, redes CAN Bus, realizar pruebas en tiempo real y detectar fallas complejas, con herramientas y conocimientos aplicados al mundo laboral.'
   },
   {
-    title: 'Introducción a la mecánica de motos', type: 'Curso', start: '8 nov 2026', startSort: '2026-11-08',
-    duration: '2 días', days: 'Domingo', schedule: '9 a 13 h',
-    price: '$129.000', enrollment: '$55.000', badge: 'Ideal para empezar', aval: 'CAM',
-    description: 'Jornada de iniciación en mecánica de motos. Conocés los sistemas principales, aprendés un mantenimiento básico y salís con una base concreta para seguir formándote.'
+    title: 'Gestión de taller automotriz',
+    type: 'Curso',
+    start: '7 y 8 nov 2026',
+    startSort: '2026-11-07',
+    duration: 'Intensivo 2 días',
+    days: 'Sábado y domingo',
+    schedule: 'Sáb 9 a 18 h · Dom 9 a 13 h',
+    price: 'A consultar',
+    enrollment: 'A consultar',
+    badge: 'Intensivo',
+    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    description: 'Formate en un curso intensivo y llevá la gestión de tu taller al siguiente nivel. Aprendé a organizar órdenes de servicio y stock, definir el valor de la mano de obra, habilitar tu taller y mejorar la atención para fidelizar clientes. Herramientas de seguridad, prevención de riesgos y protección personal. Incluye 3 clases asincrónicas grabadas.'
   },
   {
-    title: 'Plomería', type: 'Curso', start: '15 feb 2027', startSort: '2027-02-15',
-    duration: '4 meses', days: 'Lunes a viernes', schedule: '9 a 13 / 18 a 22 h',
-    price: '$109.000', enrollment: '$55.000', aval: 'IAARA',
-    description: 'Capacitación integral en instalaciones sanitarias: cañerías, conexiones de agua fría y caliente, desagüe y destapaciones. Prácticas en obra real con materiales actuales.'
+    title: 'Reparación e instalación de aire acondicionado',
+    type: 'Curso',
+    start: '11 nov 2026',
+    startSort: '2026-11-11',
+    duration: '4 meses',
+    days: 'Miércoles',
+    schedule: '17:30 a 20:30 h / 19 a 22 h',
+    price: '$109.000',
+    enrollment: '$55.000',
+    aval: 'Avalado por IAARA',
+    description: 'Formate combinando clases teóricas y prácticas para adquirir conocimientos en reparación e instalación de equipos de aire acondicionado. Una capacitación respaldada por más de 30 años de experiencia en el rubro.'
   },
   {
-    title: 'Electricidad domiciliaria', type: 'Curso', start: '17 feb 2027', startSort: '2027-02-17',
-    duration: '4 meses', days: 'Lunes a viernes', schedule: '9 a 13 / 18 a 22 h',
-    price: '$109.000', enrollment: '$55.000',
-    description: 'Aprendé a instalar, reparar y ampliar instalaciones eléctricas en viviendas. Tableros, circuitos, tomas e iluminación. Formación práctica orientada a la salida laboral inmediata.'
+    title: 'Carrera Mecánica y Electrónica Automotriz',
+    type: 'Carrera',
+    start: '15 feb 2027',
+    startSort: '2027-02-15',
+    duration: '1 año',
+    days: 'Lunes, miércoles y viernes',
+    schedule: '9 a 13 h / 18 a 22 h',
+    price: '$300.000',
+    enrollment: '$165.000',
+    badge: 'Oficial',
+    aval: 'Certificado por el Ministerio de Educación',
+    description: 'Formate en mecánica, electricidad, electrónica e inyección automotriz, aprendiendo a diagnosticar, reparar y mantener vehículos convencionales y modernos. Capacitación teórica y práctica, con instrumental profesional y diagnóstico electrónico.'
   },
   {
-    title: 'Reparación e instalación de aire acondicionado', type: 'Curso', start: '17 feb 2027', startSort: '2027-02-17',
-    duration: '4 meses', days: 'Martes y jueves', schedule: '9 a 13 / 18 a 22 h',
-    price: '$109.000', enrollment: '$55.000',
-    description: 'Todo lo que necesitás para instalar, mantener y reparar equipos de aire acondicionado split y central. Carga de gas, diagnóstico eléctrico y puesta en marcha.'
+    title: 'Carrera Mecánica y Electrónica de Motos',
+    type: 'Carrera',
+    start: '17 feb 2027',
+    startSort: '2027-02-17',
+    duration: '1 año',
+    days: 'Lunes, miércoles y viernes',
+    schedule: '9 a 13 h / 18 a 22 h',
+    price: '$300.000',
+    enrollment: '$150.000',
+    badge: 'Oficial',
+    aval: 'Certificado por el Ministerio de Educación',
+    description: 'Aprendé mecánica, electricidad, electrónica e inyección de motocicletas, desde el mantenimiento hasta el diagnóstico y reparación de sistemas modernos. Trabajá con instrumental profesional, escáner, osciloscopio y herramientas de medición.'
   },
+  {
+    title: 'Plomería',
+    type: 'Curso',
+    start: 'Próximamente',
+    startSort: '2027-09-01',
+    duration: '4 meses',
+    days: 'Martes',
+    schedule: 'A confirmar',
+    price: '$109.000',
+    enrollment: '$55.000',
+    aval: 'Avalado por CAIM',
+    description: 'Capacitación integral en instalaciones sanitarias, distribución de agua, desagües cloacales y pluviales, y reparación integral de redes domésticas y comerciales con materiales y herramientas de taller.'
+  },
+  {
+    title: 'Energía Solar Fotovoltaica',
+    type: 'Curso',
+    start: 'Próximamente',
+    startSort: '2027-09-02',
+    duration: '4 meses',
+    days: 'Jueves',
+    schedule: '20 a 22 h',
+    price: 'A consultar',
+    enrollment: 'A consultar',
+    aval: 'Avalado por CAIM',
+    description: 'Aprendé dimensionamiento, montaje e interconexión de paneles solares, inversores y acumuladores para instalaciones residenciales e industriales sustentables.'
+  },
+  {
+    title: 'Electricidad domiciliaria',
+    type: 'Curso',
+    start: 'Próximamente',
+    startSort: '2027-09-03',
+    duration: '4 meses',
+    days: 'Jueves',
+    schedule: '20 a 22 h',
+    price: '$109.000',
+    enrollment: '$55.000',
+    aval: 'Avalado por CAIM',
+    description: 'Instalaciones eléctricas residenciales y comerciales bajo normativas vigentes. Tableros, circuitos, protecciones térmicas y diferenciales con práctica integral.'
+  }
 ]
 const faqs: [string, string][] = [
   [
@@ -73,7 +183,7 @@ const faqs: [string, string][] = [
   ],
   [
     '¿Qué necesito para inscribirme?',
-    'Solo tus datos personales y el pago de la matrícula para reservar tu lugar. Escribinos por WhatsApp y te confirmamos disponibilidad, medios de pago y todo lo que necesitás saber antes de arrancar.'
+    'Solo tus datos personales y reservar tu lugar. Escribinos por WhatsApp y te confirmamos disponibilidad, medios de pago y todo lo que necesitás saber antes de arrancar.'
   ],
   [
     '¿Dónde se cursa?',
@@ -81,7 +191,7 @@ const faqs: [string, string][] = [
   ],
   [
     '¿Entregan certificado o tienen aval?',
-    'Depende del curso. Los cursos de mecánica automotriz (electricidad, inyección, introducciones y carreras de autos y motos) cuentan con el aval del CAM (Centro Argentino de Mecatrónica) — una institución con más de 30 años de trayectoria en el sector. El curso de Plomería tiene aval del IAARA. El resto de las propuestas entregan certificado de asistencia y aprobación emitido por ICAQ. Consultanos por el curso que te interesa y te detallamos qué documentación recibís al finalizar.'
+    'Nuestras propuestas cuentan con certificaciones y avales oficiales según cada área: certificación del Ministerio de Educación en nuestras carreras de 1 año, Microcredenciales del Gobierno de la Ciudad en formación técnica automotriz y de motos, aval del IAARA en Aire Acondicionado y aval de CAIM en oficios (Plomería, Fotovoltaica y Electricidad). Al finalizar recibís la documentación oficial correspondiente.'
   ],
 ]
 
@@ -302,7 +412,7 @@ export default function Page() {
                   <div><small>Valor del curso</small><strong>{c.price}</strong></div>
                   <div><small>Matrícula</small><strong>{c.enrollment}</strong></div>
                 </div>
-                {c.aval && <p className="aval">Avalado por {c.aval}</p>}
+                {c.aval && <p className="aval">{c.aval}</p>}
                 <button className="course-cta" onClick={() => ask(c)}>Consultar vacante <ArrowRight size={16} /></button>
               </article>
             )
@@ -407,7 +517,7 @@ export default function Page() {
               <div className="selected-course">
                 <small>Consulta seleccionada</small>
                 <strong>{selected.title}</strong>
-                <span>Comienza {selected.start} · {selected.price}</span>
+                <span>Comienza {selected.start}{selected.price ? ` · ${selected.price}` : ''}</span>
                 <button type="button" onClick={() => setSelected(null)} aria-label="Quitar curso seleccionado">×</button>
               </div>
             )}
