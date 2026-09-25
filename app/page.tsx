@@ -22,7 +22,7 @@ const courses: Course[] = [
     price: '$129.000',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
     description: 'Formate desde cero en mecánica automotriz y aprendé a comprender el funcionamiento de los principales sistemas de un vehículo. Incorporá conocimientos prácticos para realizar mantenimiento preventivo, detectar fallas y dar tus primeros pasos en el mundo de la mecánica.'
   },
   {
@@ -36,7 +36,7 @@ const courses: Course[] = [
     price: '$129.000',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
     description: 'Iniciate en la mecánica de motocicletas y aprendé de forma práctica sobre motores de 2 y 4 tiempos, transmisión, embrague, frenos, suspensión, carburación y sistemas eléctricos. Incorporá conocimientos y herramientas para realizar controles y mantenimiento básico de tu propia moto.'
   },
   {
@@ -50,7 +50,7 @@ const courses: Course[] = [
     price: '$109.900',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
     description: 'Especializate en electricidad, inyección y diagnóstico automotriz en solo 4 meses. Aprendé a interpretar circuitos, medir señales y detectar fallas utilizando tester, escáner, sonda lógica y osciloscopio.'
   },
   {
@@ -64,7 +64,7 @@ const courses: Course[] = [
     price: '$159.000',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
     description: 'Formate en un curso intensivo y aprendé a comprender, diagnosticar y trabajar con los sistemas eléctricos y electrónicos de las motocicletas modernas. Incorporá conocimientos prácticos para detectar fallas, realizar controles y mejorar su funcionamiento, con una capacitación orientada al mundo laboral.'
   },
   {
@@ -78,7 +78,7 @@ const courses: Course[] = [
     price: 'A consultar',
     enrollment: 'A consultar',
     badge: 'Intensivo',
-    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
     description: 'Formate en un curso intensivo y especializate en el diagnóstico de vehículos pesados. Aprendé a interpretar sistemas electrónicos, redes CAN Bus, realizar pruebas en tiempo real y detectar fallas complejas, con herramientas y conocimientos aplicados al mundo laboral.'
   },
   {
@@ -92,7 +92,7 @@ const courses: Course[] = [
     price: 'A consultar',
     enrollment: 'A consultar',
     badge: 'Intensivo',
-    aval: 'Microcredenciales del Gobierno de la Ciudad',
+    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
     description: 'Formate en un curso intensivo y llevá la gestión de tu taller al siguiente nivel. Aprendé a organizar órdenes de servicio y stock, definir el valor de la mano de obra, habilitar tu taller y mejorar la atención para fidelizar clientes. Herramientas de seguridad, prevención de riesgos y protección personal. Incluye 3 clases asincrónicas grabadas.'
   },
   {
@@ -191,7 +191,7 @@ const faqs: [string, string][] = [
   ],
   [
     '¿Entregan certificado o tienen aval?',
-    'Nuestras propuestas cuentan con certificaciones y avales oficiales según cada área: certificación del Ministerio de Educación en nuestras carreras de 1 año, Microcredenciales del Gobierno de la Ciudad en formación técnica automotriz y de motos, aval del IAARA en Aire Acondicionado y aval de CAIM en oficios (Plomería, Fotovoltaica y Electricidad). Al finalizar recibís la documentación oficial correspondiente.'
+    'Nuestras propuestas cuentan con certificaciones y avales oficiales según cada área: certificación del Ministerio de Educación en nuestras carreras de 1 año, Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires en formación técnica automotriz y de motos, aval del IAARA en Aire Acondicionado y aval de CAIM en oficios (Plomería, Fotovoltaica y Electricidad). Al finalizar recibís la documentación oficial correspondiente.'
   ],
 ]
 
@@ -373,7 +373,7 @@ export default function Page() {
 
             <div className="photo-slot photo-slot--featured" aria-label="Sede y talleres del instituto">
               <img src="/local.jpeg" alt="Sede ICAQ y CAM Quilmes Centro - Hipólito Yrigoyen 359" />
-              <span className="photo-slot-badge">SEDE QUILMES CENTRO</span>
+              <span className="photo-slot-badge">Av. Hipólito Yrigoyen 359, Quilmes Centro</span>
             </div>
           </div>
         </div>

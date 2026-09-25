@@ -72,7 +72,7 @@ h3,
 .agenda-heading b {
   font-family: var(--font-display), 'Barlow Condensed', Impact, sans-serif;
   font-weight: 900;
-  text-transform: uppercase
+  text-transform: none;
 }
 
 .section-shell {
@@ -516,7 +516,7 @@ h2 em {
   font-size: 1.3rem;
   font-family: var(--font-display), 'Barlow Condensed', Impact, sans-serif;
   font-weight: 900;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: .02em
 }
 
@@ -646,11 +646,10 @@ h2 em {
 .trust-grid strong {
   display: block;
   margin: 8px 0 3px;
-  font-size: 14px;
   font-family: var(--font-display), 'Barlow Condensed', Impact, sans-serif;
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .04em;
+  text-transform: none;
+  letter-spacing: .02em;
   font-size: 16px
 }
 
@@ -702,7 +701,7 @@ h2 em {
 .faq-heading h2 {
   margin: 0;
   font-size: clamp(2.4rem, 3.8vw, 4.8rem);
-  line-height: .9;
+  line-height: 1.02;
   letter-spacing: .01em
 }
 
@@ -851,7 +850,7 @@ h2 em {
   margin: 16px 0 10px;
   color: var(--ink);
   font-size: clamp(1.2rem, 1.5vw, 1.45rem);
-  line-height: .97;
+  line-height: 1.12;
   letter-spacing: .01em
 }
 
@@ -936,7 +935,8 @@ h2 em {
   margin: 10px 0 0;
   color: var(--red);
   font: 700 9px 'Courier New', monospace;
-  letter-spacing: .08em
+  letter-spacing: .08em;
+  line-height: 1.45;
 }
 
 .course-cta {
@@ -1052,7 +1052,7 @@ h2 em {
 .contact-section h2 {
   margin: 20px 0;
   font-size: clamp(2.4rem, 3.8vw, 4.8rem);
-  line-height: .88;
+  line-height: 1.02;
   letter-spacing: .01em
 }
 
@@ -1874,12 +1874,14 @@ h2 em {
   position: absolute;
   bottom: 14px;
   left: 14px;
+  max-width: calc(100% - 28px);
   background: var(--ink);
   color: #fff;
-  padding: 4px 10px;
+  padding: 5px 10px;
   font: 700 9px 'Courier New', monospace;
-  letter-spacing: .1em;
+  letter-spacing: .06em;
   border: 1px solid rgba(255, 255, 255, .15);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, .25);
 }
 
 .quienes-copy {
@@ -1895,7 +1897,7 @@ h2 em {
 .quienes-copy h2 {
   margin: 14px 0 22px;
   font-size: clamp(2.4rem, 3.8vw, 4.2rem);
-  line-height: .92;
+  line-height: 1.02;
   letter-spacing: .01em;
 }
 
@@ -2184,7 +2186,7 @@ h2 em {
   font-family: var(--font-display), 'Barlow Condensed', Impact, sans-serif;
   font-weight: 900;
   font-size: 1.1rem;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .selected-course span {
