@@ -548,7 +548,6 @@ export default function Page() {
           <span className="footer-copy">© 2026 ICAQ. Todos los derechos reservados.</span>
         </div>
       </footer>
-      <a className="sticky-whatsapp" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola ICAQ, quiero consultar por los próximos cursos.')}`} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Consultar por WhatsApp</a>
     </main>
   )
 }
