@@ -19,6 +19,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'ICAQ | Cursos y carreras prácticas en Quilmes',
   description: 'Cursos y carreras presenciales de mecánica, electricidad, inyección y oficios en ICAQ, Quilmes. Consultá próximos comienzos y vacantes.',
+  icons: {
+    icon: [
+      { url: '/favicon.png' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export const viewport: Viewport = { colorScheme: 'light', themeColor: '#761523', userScalable: true }
