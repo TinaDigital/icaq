@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { ArrowRight, Check, ChevronDown, Clock3, MapPin, Menu, MessageCircle, Phone, X } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, ChevronUp, Clock3, MapPin, Menu, MessageCircle, Phone, X } from 'lucide-react'
 
 const logoUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_nvp9dcnvp9dcnvp9-En2u5A3Uu2H30b4kBl9JjCxa3QhIMK.jpeg'
 const whatsappNumber = '5491126050359'
@@ -87,16 +87,67 @@ const faqs: [string, string][] = [
 
 function Logo() { return <img className="logo" src={logoUrl} alt="ICAQ — Instituto de Capacitación y Aprendizaje Quilmes" /> }
 
+function FacebookIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  )
+}
+
+function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  )
+}
+
+const courseSlug = (title: string) =>
+  'curso-' +
+  title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [filter, setFilter] = useState<'Todos' | 'Próximos' | 'Curso' | 'Carrera'>('Carrera')
+  const [filter, setFilter] = useState<'Todos' | 'Próximos' | 'Curso' | 'Carrera'>('Todos')
+  const [expanded, setExpanded] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [selected, setSelected] = useState<Course | null>(null)
+  const [highlightedCourse, setHighlightedCourse] = useState<string | null>(null)
   const [form, setForm] = useState({ nombre: '', telefono: '', consulta: '' })
   const upcoming = useMemo(() => courses.slice(0, 4), [])
   const visible = courses.filter(c => filter === 'Todos' || (filter === 'Próximos' ? c.startSort < '2027-01-01' : c.type === filter))
+  const displayedCourses = expanded ? visible : visible.slice(0, 3)
   const scrollTo = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }
   const ask = (course?: Course) => { if (course) setSelected(course); scrollTo('contacto') }
+
+  const goToCourse = (course: Course) => {
+    if (filter !== 'Todos' && filter !== course.type && (filter !== 'Próximos' || course.startSort >= '2027-01-01')) {
+      setFilter('Todos')
+    }
+    setExpanded(true)
+    setHighlightedCourse(course.title)
+    const id = courseSlug(course.title)
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      } else {
+        scrollTo('propuestas')
+      }
+    }, 60)
+    setTimeout(() => {
+      setHighlightedCourse(null)
+    }, 2800)
+  }
+
   const sendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault()
     const msg = `Hola ICAQ, soy ${form.nombre}. Mi teléfono es ${form.telefono}. ${selected ? `Me interesa ${selected.title}, comienza el ${selected.start}.` : 'Quisiera información sobre los próximos cursos.'} ${form.consulta}`
@@ -106,25 +157,7 @@ export default function Page() {
     <main>
 
       <div className="header-wrap">
-        {/* TOP BAR / UTILITY */}
-        <div className="top-bar">
-          <div className="top-bar-inner">
-            <div className="top-bar-item">
-              <MapPin size={13} className="top-bar-icon" />
-              <span>SEDE QUILMES CENTRO · HIPÓLITO YRIGOYEN 359</span>
-            </div>
-            <div className="top-bar-badge">
-              <span className="live-indicator" />
-              <span>CICLO LECTIVO 2026 // INSCRIPCIONES ABIERTAS</span>
-            </div>
-            <div className="top-bar-item top-bar-contact">
-              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
-                <MessageCircle size={13} className="top-bar-icon" />
-                <span>CONSULTAS WA: 11 2605-0359</span>
-              </a>
-            </div>
-          </div>
-        </div>
+
 
         {/* MAIN HEADER */}
         <header className="site-header">
@@ -132,41 +165,28 @@ export default function Page() {
             <div className="logo-container">
               <Logo />
             </div>
-            <div className="brand-meta">
-              <span className="brand-tag">TALLER & OFICIOS</span>
-              <span className="brand-sub">QUILMES BS.AS.</span>
-            </div>
           </a>
 
           <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navegación principal">
             <button onClick={() => scrollTo('quienes-somos')}>
-              <span className="nav-index">01</span>Quiénes somos
+              Quiénes somos
             </button>
             <button onClick={() => scrollTo('agenda')}>
-              <span className="nav-index">02</span>Próximos cursos
+              Próximos cursos
             </button>
             <button onClick={() => scrollTo('propuestas')}>
-              <span className="nav-index">03</span>Propuestas
+              Propuestas
             </button>
             <button onClick={() => scrollTo('metodo')}>
-              <span className="nav-index">04</span>Cómo aprendés
+              Cómo aprendés
             </button>
             <button onClick={() => scrollTo('contacto')}>
-              <span className="nav-index">05</span>Contacto
+              Contacto
             </button>
           </nav>
 
           <div className="header-actions">
-            <a
-              className="header-whatsapp"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola ICAQ, quiero consultar por los próximos cursos.')}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <MessageCircle size={15} />
-              <span>WhatsApp</span>
-            </a>
-            <button className="header-cta" onClick={() => scrollTo('agenda')}>
+            <button className="header-cta" onClick={() => scrollTo('contacto')}>
               <span>Inscribirse</span>
               <ArrowRight size={14} />
             </button>
@@ -185,15 +205,15 @@ export default function Page() {
           <h1>Formate en ICAQ.<br /><em>Empezá ahora.</em></h1>
           <p className="hero-lead">Cursos y carreras prácticas para convertir tu interés por los autos, las motos y los oficios en una habilidad concreta.</p>
           <div className="hero-actions">
-            <button className="button button-primary" onClick={() => scrollTo('agenda')}>Ver próximos comienzos <ArrowRight size={18} /></button>
+            <button className="button button-primary" onClick={() => scrollTo('propuestas')}>Ver próximos comienzos <ArrowRight size={18} /></button>
             <button className="text-button" onClick={() => scrollTo('quienes-somos')}>Conocé ICAQ <span>↓</span></button>
           </div>
           <div className="hero-proof"><span className="proof-mark"><Check size={16} /></span><span>Presencial · Práctico · Quilmes</span></div>
         </div>
         <div id="agenda" className="hero-agenda reveal reveal-delay-2">
-          <div className="agenda-heading"><span>AGENDA ICAQ / 2026</span><b>Próximos comienzos</b><small>Elegí una propuesta y consultá tu vacante.</small></div>
+          <div className="agenda-heading"><span>AGENDA ICAQ / 2026</span><b>Próximos comienzos</b><small>Tocá un curso para ver su ficha completa.</small></div>
           {upcoming.map((c, i) => (
-            <button className="agenda-item" style={{ '--i': i } as React.CSSProperties} key={c.title} onClick={() => ask(c)}>
+            <button className="agenda-item" style={{ '--i': i } as React.CSSProperties} key={c.title} onClick={() => goToCourse(c)}>
               <span className="agenda-date"><b>{c.start.slice(0, 2)}</b><small>{c.start.slice(3, 6).toUpperCase()}</small></span>
               <span><strong>{c.title}</strong><small>{c.type} · {c.duration} · {c.days}</small></span>
               <ArrowRight size={17} />
@@ -215,40 +235,28 @@ export default function Page() {
 
       {/* QUIÉNES SOMOS */}
       <section id="quienes-somos" className="quienes-section">
-        <div className="quienes-grid reveal">
-          {/* FOTO — reemplazá por <img src="..." className="photo-slot-img" /> cuando tengas la foto */}
-          <div className="photo-slot photo-slot--portrait" aria-label="Foto del instituto">
-            <span className="photo-slot-label">FOTO DEL<br />INSTITUTO</span>
-          </div>
-          <div className="quienes-copy">
-            <p className="eyebrow"><span className="eyebrow-line" /> QUIÉNES SOMOS</p>
-            <h2>Instituto de Capacitación<br /><span>y Aprendizaje Quilmes</span></h2>
-            <p>Somos una institución de formación técnica y profesional con sede en Quilmes Centro. Nuestro propósito es claro: brindar herramientas reales para que cada alumno pueda incorporarse al mundo laboral o mejorar lo que ya sabe hacer.</p>
-            <p>Trabajamos con docentes especializados, metodología práctica y grupos reducidos para garantizar un aprendizaje de calidad. Cada propuesta está pensada para que apliques lo aprendido desde el primer día, sin rodeos y sin teoría vacía.</p>
-            <p>En el área automotriz trabajamos junto al <strong>CAM</strong> (Centro Argentino de Mecatrónica) — con más de 30 años formando profesionales — lo que nos permite ofrecer certificaciones reconocidas y un respaldo académico sólido.</p>
-            <div className="quienes-bottom">
-              <button className="button button-primary" onClick={() => scrollTo('agenda')}>Formate en ICAQ <ArrowRight size={18} /></button>
-              <div className="cam-box">
-                <p className="cam-label">AVALADO POR</p>
-                <img className="cam-logo" src="/Logo.jpeg" alt="CAM — Centro Argentino de Mecatrónica" />
-                <p className="cam-years"><strong>+30 años</strong> formando profesionales del sector automotriz</p>
+        <div className="section-shell">
+          <div className="quienes-grid reveal">
+            <div className="quienes-copy">
+              <p className="eyebrow"><span className="eyebrow-line" /> QUIÉNES SOMOS</p>
+              <h2>Instituto de Capacitación<br /><span>y Aprendizaje Quilmes</span></h2>
+              <p>Somos una institución de formación técnica y profesional con sede en Quilmes Centro. Nuestro propósito es claro: brindar herramientas reales para que cada alumno pueda incorporarse al mundo laboral, perfeccionar su técnica o iniciar su propio taller.</p>
+              <p>Trabajamos con docentes especializados, metodología práctica y grupos reducidos para garantizar un aprendizaje de calidad. Cada propuesta está pensada para que apliques lo aprendido con herramientas reales desde el primer día, sin rodeos y sin teoría vacía.</p>
+
+              <div className="quienes-bottom">
+                <button className="button button-primary" onClick={() => scrollTo('propuestas')}>Ver todas las propuestas <ArrowRight size={18} /></button>
+                <div className="cam-box">
+                  <span className="cam-label">AVALADO POR</span>
+                  <img className="cam-logo" src="/logo_cam.png" alt="CAM — Centro Argentino de Mecatrónica" />
+                  <p className="cam-years"><strong>+30 años</strong> formando profesionales del sector automotriz</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* INTRO */}
-      <section id="nosotros" className="intro-band">
-        <div className="intro-grid reveal">
-          <div className="intro-text">
-            <div className="section-kicker">ICAQ / DESDE 2014</div>
-            <h2>Aprendés con las manos,<br /><span>avancás con confianza.</span></h2>
-            <p>Formamos personas que quieren incorporarse al mundo laboral o perfeccionar una habilidad. La propuesta combina teoría clara, práctica guiada y acompañamiento docente en cada encuentro.</p>
-          </div>
-          {/* FOTO — reemplazá por <img src="..." className="photo-slot-img" /> cuando tengas la foto */}
-          <div className="photo-slot photo-slot--landscape" aria-label="Foto de clase práctica">
-            <span className="photo-slot-label">FOTO DE<br />LA CLASE</span>
+            <div className="photo-slot photo-slot--featured" aria-label="Sede y talleres del instituto">
+              <img src="/local.jpeg" alt="Sede ICAQ y CAM Quilmes Centro - Hipólito Yrigoyen 359" />
+              <span className="photo-slot-badge">SEDE QUILMES CENTRO</span>
+            </div>
           </div>
         </div>
       </section>
@@ -264,31 +272,61 @@ export default function Page() {
         </div>
         <div className="filter-bar reveal" role="tablist" aria-label="Filtrar propuestas">
           {(['Todos', 'Próximos', 'Curso', 'Carrera'] as const).map(item => (
-            <button key={item} className={filter === item ? 'filter active' : 'filter'} onClick={() => setFilter(item)}>{item}{item === 'Próximos' && <span>2026</span>}</button>
+            <button key={item} className={filter === item ? 'filter active' : 'filter'} onClick={() => { setFilter(item); setExpanded(false); }}>{item}{item === 'Próximos' && <span>2026</span>}</button>
           ))}
         </div>
         <div className="course-catalog">
-          {visible.map((c, i) => (
-            <article className="catalog-card reveal" style={{ '--i': i } as React.CSSProperties} key={c.title}>
-              <div className="catalog-top"><span className="type-label">{c.type}</span>{c.badge && <span className="card-tag">{c.badge}</span>}</div>
-              <h3>{c.title}</h3>
-              {c.description && <p className="course-description">{c.description}</p>}
-              <div className="card-start"><span>COMIENZA</span><strong>{c.start}</strong></div>
-              <div className="course-details">
-                <p><b>Duración</b><strong>{c.duration}</strong></p>
-                <p><b>Cursada</b><strong>{c.days}</strong></p>
-                <p><b>Horario</b><strong>{c.schedule}</strong></p>
-              </div>
-              <div className="price-row">
-                <div><small>Valor del curso</small><strong>{c.price}</strong></div>
-                <div><small>Matrícula</small><strong>{c.enrollment}</strong></div>
-              </div>
-              {c.aval && <p className="aval">Avalado por {c.aval}</p>}
-              <button className="course-cta" onClick={() => ask(c)}>Consultar vacante <ArrowRight size={16} /></button>
-            </article>
-          ))}
+          {displayedCourses.map((c, i) => {
+            const id = courseSlug(c.title)
+            const isHighlighted = highlightedCourse === c.title
+            return (
+              <article id={id} className={`catalog-card reveal ${isHighlighted ? 'is-highlighted' : ''}`} style={{ '--i': i } as React.CSSProperties} key={c.title}>
+                <div className="catalog-top"><span className="type-label">{c.type}</span>{c.badge && <span className="card-tag">{c.badge}</span>}</div>
+                <h3>{c.title}</h3>
+                {c.description && <p className="course-description">{c.description}</p>}
+                <div className="card-start"><span>COMIENZA</span><strong>{c.start}</strong></div>
+                <div className="course-details">
+                  <p><b>Duración</b><strong>{c.duration}</strong></p>
+                  <p><b>Cursada</b><strong>{c.days}</strong></p>
+                  <p><b>Horario</b><strong>{c.schedule}</strong></p>
+                </div>
+                <div className="price-row">
+                  <div><small>Valor del curso</small><strong>{c.price}</strong></div>
+                  <div><small>Matrícula</small><strong>{c.enrollment}</strong></div>
+                </div>
+                {c.aval && <p className="aval">Avalado por {c.aval}</p>}
+                <button className="course-cta" onClick={() => ask(c)}>Consultar vacante <ArrowRight size={16} /></button>
+              </article>
+            )
+          })}
         </div>
-        <p className="price-note">Valores informados en la planilla de cursos. Confirmá vigencia, medios de pago y vacantes al consultar.</p>
+        {visible.length > 3 && (
+          <div className="catalog-toggle-wrap">
+            <button
+              className="catalog-toggle-btn"
+              onClick={() => {
+                if (expanded) {
+                  setExpanded(false)
+                  document.getElementById('propuestas')?.scrollIntoView({ behavior: 'smooth' })
+                } else {
+                  setExpanded(true)
+                }
+              }}
+            >
+              {expanded ? (
+                <>
+                  <span>Mostrar menos</span>
+                  <ChevronUp size={14} />
+                </>
+              ) : (
+                <>
+                  <span>Ver más propuestas ({visible.length - 3})</span>
+                  <ChevronDown size={14} />
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </section>
 
       {/* MÉTODO */}
@@ -348,6 +386,9 @@ export default function Page() {
             <div className="contact-details">
               <p><MapPin size={18} /> Av. Hipólito Yrigoyen 359, Quilmes Centro</p>
               <p><Phone size={18} /> +54 11 2605-0359</p>
+              <a href="https://www.instagram.com/somos.icaq/" target="_blank" rel="noopener noreferrer" className="contact-social-link">
+                <InstagramIcon size={18} /> <span>Instagram: <strong>@somos.icaq</strong></span>
+              </a>
               <p><Clock3 size={18} /> Lunes a viernes · 9 a 13 / 16 a 20 h</p>
             </div>
           </div>
@@ -374,9 +415,15 @@ export default function Page() {
           <Logo />
           <p>Instituto de Capacitación y Aprendizaje Quilmes</p>
           <div className="footer-social">
-            <a href="#contacto">IG</a>
-            <a href="#contacto">FB</a>
-            <a href={`https://wa.me/${whatsappNumber}`} aria-label="WhatsApp"><MessageCircle size={18} /></a>
+            <a href="https://www.instagram.com/somos.icaq/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ICAQ (@somos.icaq)">
+              <InstagramIcon size={16} />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook de ICAQ">
+              <FacebookIcon size={16} />
+            </a>
+            <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de ICAQ">
+              <MessageCircle size={16} />
+            </a>
           </div>
           <span className="footer-copy">© 2026 ICAQ. Todos los derechos reservados.</span>
         </div>
