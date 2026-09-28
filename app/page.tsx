@@ -454,7 +454,7 @@ export default function Page() {
             <p className="eyebrow light"><span className="eyebrow-line" /> NUESTRA FORMA DE ENSEÑAR</p>
             <h2>La teoría orienta.<br /><em>La práctica transforma.</em></h2>
             <p className="method-text">No te quedás mirando: trabajás con herramientas y situaciones reales desde el primer encuentro. Cada clase es una oportunidad concreta de aprender algo que podés aplicar al día siguiente.</p>
-            <button className="button button-outline" onClick={() => scrollTo('contacto')}>Hablar con ICAQ <ArrowRight size={18} /></button>
+            <button className="button button-outline mt-5" onClick={() => scrollTo('contacto')}>Hablar con ICAQ <ArrowRight size={18} /></button>
           </div>
           <div className="method-steps">
             <div>
