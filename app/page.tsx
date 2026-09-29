@@ -105,7 +105,7 @@ const courses: Course[] = [
     schedule: '17:30 a 20:30 h / 19 a 22 h',
     price: '$109.000',
     enrollment: '$55.000',
-    aval: 'Avalado por IAARA',
+    aval: 'Avalado por IARAA',
     description: 'Formate combinando clases teóricas y prácticas para adquirir conocimientos en reparación e instalación de equipos de aire acondicionado. Una capacitación respaldada por más de 30 años de experiencia en el rubro.'
   },
   {
@@ -146,7 +146,7 @@ const courses: Course[] = [
     schedule: 'A confirmar',
     price: '$109.000',
     enrollment: '$55.000',
-    aval: 'Avalado por CAIM',
+    aval: 'Avalado por CAM',
     description: 'Capacitación integral en instalaciones sanitarias, distribución de agua, desagües cloacales y pluviales, y reparación integral de redes domésticas y comerciales con materiales y herramientas de taller.'
   },
   {
@@ -159,7 +159,7 @@ const courses: Course[] = [
     schedule: '20 a 22 h',
     price: 'A consultar',
     enrollment: 'A consultar',
-    aval: 'Avalado por CAIM',
+    aval: 'Avalado por CAM',
     description: 'Aprendé dimensionamiento, montaje e interconexión de paneles solares, inversores y acumuladores para instalaciones residenciales e industriales sustentables.'
   },
   {
@@ -172,7 +172,7 @@ const courses: Course[] = [
     schedule: '20 a 22 h',
     price: '$109.000',
     enrollment: '$55.000',
-    aval: 'Avalado por CAIM',
+    aval: 'Avalado por CAM',
     description: 'Instalaciones eléctricas residenciales y comerciales bajo normativas vigentes. Tableros, circuitos, protecciones térmicas y diferenciales con práctica integral.'
   }
 ]
@@ -537,9 +537,6 @@ export default function Page() {
           <div className="footer-social">
             <a href="https://www.instagram.com/somos.icaq/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ICAQ (@somos.icaq)">
               <InstagramIcon size={16} />
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook de ICAQ">
-              <FacebookIcon size={16} />
             </a>
             <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de ICAQ">
               <WhatsAppIcon size={16} />
