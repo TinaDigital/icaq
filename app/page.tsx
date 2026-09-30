@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { ArrowRight, Check, ChevronDown, ChevronUp, Clock3, MapPin, Menu, MessageCircle, Phone, X } from 'lucide-react'
+import { breadcrumbJsonLd, generateCoursesJsonLd, generateFaqJsonLd, organizationJsonLd } from './seo-schema'
 
 const logoUrl = '/logo.png'
 const whatsappNumber = '5491124807891'
@@ -146,7 +147,7 @@ const courses: Course[] = [
     schedule: 'A confirmar',
     price: '$109.000',
     enrollment: '$55.000',
-    aval: 'Avalado por CAM',
+    aval: 'Avalado por CAIM',
     description: 'Capacitación integral en instalaciones sanitarias, distribución de agua, desagües cloacales y pluviales, y reparación integral de redes domésticas y comerciales con materiales y herramientas de taller.'
   },
   {
@@ -159,7 +160,7 @@ const courses: Course[] = [
     schedule: '20 a 22 h',
     price: 'A consultar',
     enrollment: 'A consultar',
-    aval: 'Avalado por CAM',
+    aval: 'Avalado por CAIM',
     description: 'Aprendé dimensionamiento, montaje e interconexión de paneles solares, inversores y acumuladores para instalaciones residenciales e industriales sustentables.'
   },
   {
@@ -172,7 +173,7 @@ const courses: Course[] = [
     schedule: '20 a 22 h',
     price: '$109.000',
     enrollment: '$55.000',
-    aval: 'Avalado por CAM',
+    aval: 'Avalado por CAIM',
     description: 'Instalaciones eléctricas residenciales y comerciales bajo normativas vigentes. Tableros, circuitos, protecciones térmicas y diferenciales con práctica integral.'
   }
 ]
@@ -271,15 +272,35 @@ export default function Page() {
     const msg = `Hola ICAQ, soy ${form.nombre}. Mi teléfono es ${form.telefono}. ${selected ? `Me interesa ${selected.title}, comienza el ${selected.start}.` : 'Quisiera información sobre los próximos cursos.'} ${form.consulta}`
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer')
   }
+  const coursesJsonLd = useMemo(() => generateCoursesJsonLd(courses), [])
+  const faqJsonLd = useMemo(() => generateFaqJsonLd(faqs), [])
+
   return (
     <main>
+      {/* STRUCTURED DATA FOR SEARCH ENGINES (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
 
       <div className="header-wrap">
 
 
         {/* MAIN HEADER */}
         <header className="site-header">
-          <a href="#inicio" className="brand-link" aria-label="Ir al inicio ICAQ">
+          <a href="#inicio" className="brand-link" aria-label="Ir al inicio ICAQ - Instituto de Capacitación y Aprendizaje Quilmes">
             <div className="logo-container">
               <Logo />
             </div>
@@ -297,6 +318,9 @@ export default function Page() {
             </button>
             <button onClick={() => scrollTo('metodo')}>
               Cómo aprendés
+            </button>
+            <button onClick={() => scrollTo('faq')}>
+              Preguntas frecuentes
             </button>
             <button onClick={() => scrollTo('contacto')}>
               Contacto
@@ -319,14 +343,14 @@ export default function Page() {
       {/* HERO */}
       <section id="inicio" className="hero section-shell">
         <div className="hero-copy reveal">
-          <p className="eyebrow"><span className="eyebrow-line" /> FORMACIÓN TÉCNICA PRESENCIAL</p>
-          <h1>Formate en ICAQ.<br /><em>Empezá ahora.</em></h1>
-          <p className="hero-lead">Cursos y carreras prácticas para convertir tu interés por los autos, las motos y los oficios en una habilidad concreta.</p>
+          <p className="eyebrow"><span className="eyebrow-line" /> FORMACIÓN TÉCNICA PRESENCIAL EN QUILMES</p>
+          <h1>Cursos y Carreras en Quilmes.<br /><em>Formate en ICAQ.</em></h1>
+          <p className="hero-lead">Cursos y carreras presenciales de mecánica automotriz, motos, inyección electrónica y oficios con herramientas reales, talleres propios y rápida salida laboral en Quilmes Centro.</p>
           <div className="hero-actions">
             <button className="button button-primary hero-btn-main" onClick={() => scrollTo('propuestas')}>Ver cursos y carreras <ArrowRight size={17} /></button>
             <button className="text-button hero-btn-secondary" onClick={() => scrollTo('quienes-somos')}>Conocé ICAQ <span>↓</span></button>
           </div>
-          <div className="hero-proof"><span className="proof-mark"><Check size={16} /></span><span>Presencial · Práctico · Quilmes</span></div>
+          <div className="hero-proof"><span className="proof-mark"><Check size={16} /></span><span>Presencial · Talleres equipados · Quilmes Centro</span></div>
         </div>
         <div id="agenda" className="hero-agenda reveal reveal-delay-2">
           <div className="agenda-heading"><span>AGENDA ICAQ / 2026</span><b>Próximos comienzos</b><small>Tocá un curso para ver su ficha completa.</small></div>
@@ -358,21 +382,21 @@ export default function Page() {
             <div className="quienes-copy">
               <p className="eyebrow"><span className="eyebrow-line" /> QUIÉNES SOMOS</p>
               <h2>Instituto de Capacitación<br /><span>y Aprendizaje Quilmes</span></h2>
-              <p>Somos una institución de formación técnica y profesional con sede en Quilmes Centro. Nuestro propósito es claro: brindar herramientas reales para que cada alumno pueda incorporarse al mundo laboral, perfeccionar su técnica o iniciar su propio taller.</p>
+              <p>Somos una institución de formación técnica y profesional con sede en Quilmes Centro. Nuestro propósito es claro: brindar herramientas reales para que cada alumno pueda incorporarse al mundo laboral, perfeccionar su técnica o iniciar su propio taller en Quilmes y toda la Zona Sur.</p>
               <p>Trabajamos con docentes especializados, metodología práctica y grupos reducidos para garantizar un aprendizaje de calidad. Cada propuesta está pensada para que apliques lo aprendido con herramientas reales desde el primer día, sin rodeos y sin teoría vacía.</p>
 
               <div className="quienes-bottom">
                 <button className="button button-primary" onClick={() => scrollTo('propuestas')}>Ver todas las propuestas <ArrowRight size={18} /></button>
                 <div className="cam-box">
                   <span className="cam-label">AVALADO POR</span>
-                  <img className="cam-logo" src="/logo_cam.png" alt="CAM — Centro Argentino de Mecatrónica" />
+                  <img className="cam-logo" src="/logo_cam.png" alt="CAM — Centro Argentino de Mecatrónica - Aval institucional y técnico" />
                   <p className="cam-years"><strong>+30 años</strong> formando profesionales del sector automotriz</p>
                 </div>
               </div>
             </div>
 
-            <div className="photo-slot photo-slot--featured" aria-label="Sede y talleres del instituto">
-              <img src="/local.jpeg" alt="Sede ICAQ y CAM Quilmes Centro - Hipólito Yrigoyen 359" />
+            <div className="photo-slot photo-slot--featured" aria-label="Sede y talleres del instituto ICAQ">
+              <img src="/local.jpeg" alt="Sede ICAQ y aulas taller en Quilmes Centro - Av. Hipólito Yrigoyen 359" />
               <span className="photo-slot-badge">Av. Hipólito Yrigoyen 359, Quilmes Centro</span>
             </div>
           </div>
@@ -383,10 +407,10 @@ export default function Page() {
       <section id="propuestas" className="section-shell proposals">
         <div className="section-heading reveal">
           <div>
-            <p className="eyebrow"><span className="eyebrow-line" /> CURSOS Y CARRERAS</p>
-            <h2>Propuestas con<br /><span>fecha de inicio.</span></h2>
+            <p className="eyebrow"><span className="eyebrow-line" /> CURSOS Y CARRERAS TÉCNICAS</p>
+            <h2>Cursos de Mecánica y Oficios<br /><span>con inicio confirmado.</span></h2>
           </div>
-          <p className="section-description">Encontrá una formación, compará sus datos y consultá la disponibilidad. La información de cada ficha te ayuda a decidir sin vueltas.</p>
+          <p className="section-description">Encontrá tu curso o carrera en Quilmes, compará contenidos, duración y aranceles. Capacitación práctica con vacantes limitadas y rápida inserción laboral.</p>
         </div>
         <div className="filter-bar reveal" role="tablist" aria-label="Filtrar propuestas">
           {(['Todos', 'Próximos', 'Curso', 'Carrera'] as const).map(item => (
@@ -477,10 +501,10 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
-      <section className="faq-section section-shell">
+      <section id="faq" className="faq-section section-shell">
         <div className="faq-heading reveal">
-          <p className="eyebrow"><span className="eyebrow-line" /> INFORMACIÓN ÚTIL</p>
-          <h2>Antes de inscribirte,<br /><span>resolvemos tus dudas.</span></h2>
+          <p className="eyebrow"><span className="eyebrow-line" /> INFORMACIÓN ÚTIL Y PREGUNTAS FRECUENTES</p>
+          <h2>Antes de inscribirte,<br /><span>resolvemos todas tus dudas.</span></h2>
         </div>
         <div className="faq-list reveal">
           {faqs.map(([q, a], i) => (
@@ -505,7 +529,9 @@ export default function Page() {
               <a href="https://www.google.com/maps/search/?api=1&query=Av.+Hip%C3%B3lito+Yrigoyen+359%2C+Quilmes" target="_blank" rel="noopener noreferrer" className="contact-social-link">
                 <MapPin size={18} /> <span>Av. Hipólito Yrigoyen 359, Quilmes Centro</span>
               </a>
-              <p><Phone size={18} /> +54 9 11 2480-7891</p>
+              <a href="tel:+5491124807891" className="contact-social-link" aria-label="Llamar a ICAQ Quilmes al +54 9 11 2480-7891">
+                <Phone size={18} /> <span>+54 9 11 2480-7891</span>
+              </a>
               <a href="https://www.instagram.com/somos.icaq/" target="_blank" rel="noopener noreferrer" className="contact-social-link">
                 <InstagramIcon size={18} /> <span>Instagram: <strong>@somos.icaq</strong></span>
               </a>
@@ -537,6 +563,9 @@ export default function Page() {
           <div className="footer-social">
             <a href="https://www.instagram.com/somos.icaq/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ICAQ (@somos.icaq)">
               <InstagramIcon size={16} />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61593790325297" target="_blank" rel="noopener noreferrer" aria-label="Facebook de ICAQ">
+              <FacebookIcon size={16} />
             </a>
             <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de ICAQ">
               <WhatsAppIcon size={16} />

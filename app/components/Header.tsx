@@ -1,6 +1,9 @@
 import React from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
-import Logo from '../constants/logoUrl';
+
+const Logo = () => (
+  <img className="logo" src="/logo.png" alt="ICAQ — Instituto de Capacitación y Aprendizaje Quilmes" />
+);
 
 type HeaderProps = {
   menuOpen: boolean;
