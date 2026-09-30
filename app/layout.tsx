@@ -16,7 +16,7 @@ const inter = Inter({
 })
 
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://icaq.com.ar'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://capacitacionesquilmes.com.ar'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   },
   description: 'Instituto de formación técnica presencial en Quilmes Centro. Cursos prácticos y carreras con aval oficial: Mecánica Automotriz, Motos, Inyección Electrónica, Electricidad, Aire Acondicionado y Oficios con rápida salida laboral.',
   keywords: [
+    'capacitaciones quilmes',
+    'capacitaciones en quilmes',
+    'cursos en quilmes',
     'cursos de mecanica en quilmes',
     'mecanica automotriz quilmes',
     'cursos de mecanica de motos quilmes',

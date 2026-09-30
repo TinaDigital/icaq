@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://icaq.com.ar'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://capacitacionesquilmes.com.ar'
   const currentDate = new Date().toISOString()
 
   return [

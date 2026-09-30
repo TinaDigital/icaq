@@ -1,11 +1,11 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://icaq.com.ar'
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://capacitacionesquilmes.com.ar'
 
 export const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': ['EducationalOrganization', 'LocalBusiness', 'VocationalSchool'],
   '@id': `${siteUrl}/#organization`,
   name: 'ICAQ - Instituto de Capacitación y Aprendizaje Quilmes',
-  alternateName: ['ICAQ', 'Instituto ICAQ'],
+  alternateName: ['Capacitaciones Quilmes', 'ICAQ', 'Instituto ICAQ'],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   image: [
