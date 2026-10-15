@@ -15,86 +15,72 @@ const courses: Course[] = [
   {
     title: 'Introducción a la mecánica automotriz',
     type: 'Curso',
-    start: '19 oct 2026',
-    startSort: '2026-10-19',
+    start: '2 nov 2026',
+    startSort: '2026-11-02',
     duration: '3 meses',
     days: 'Lunes',
     schedule: '9 a 12:30 h / 18 a 22 h',
     price: '$99.900',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
+    aval: 'Certificado por Microcredenciales del Gobierno de la Ciudad',
     description: 'Formate desde cero en mecánica automotriz y aprendé a comprender el funcionamiento de los principales sistemas de un vehículo. Incorporá conocimientos prácticos para realizar mantenimiento preventivo, detectar fallas y dar tus primeros pasos en el mundo de la mecánica.'
+  },
+  {
+    title: 'Electricidad e inyección de motos',
+    type: 'Curso',
+    start: '2 y 5 nov 2026',
+    startSort: '2026-11-02',
+    duration: '3 meses',
+    days: 'Lunes o jueves (según turno)',
+    schedule: 'Jue 9 a 12:30 h / Lun 18 a 22 h',
+    price: '$99.900',
+    enrollment: '$55.000',
+    badge: 'Próximo',
+    aval: 'Certificado por Microcredenciales del Gobierno de la Ciudad',
+    description: 'Formate en un curso intensivo y aprendé a comprender, diagnosticar y trabajar con los sistemas eléctricos y electrónicos de las motocicletas modernas. Incorporá conocimientos prácticos para detectar fallas, realizar controles y mejorar su funcionamiento, con una capacitación orientada al mundo laboral.'
   },
   {
     title: 'Introducción a la mecánica de motos',
     type: 'Curso',
-    start: '20 oct 2026',
-    startSort: '2026-10-20',
+    start: '3 nov 2026',
+    startSort: '2026-11-03',
     duration: '3 meses',
     days: 'Martes',
-    schedule: '9 a 12:30 h / 18:30 a 22 h',
+    schedule: '9 a 12:30 h / 18 a 22 h',
     price: '$99.900',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
+    aval: 'Certificado por Microcredenciales del Gobierno de la Ciudad',
     description: 'Iniciate en la mecánica de motocicletas y aprendé de forma práctica sobre motores de 2 y 4 tiempos, transmisión, embrague, frenos, suspensión, carburación y sistemas eléctricos. Incorporá conocimientos y herramientas para realizar controles y mantenimiento básico de tu propia moto.'
   },
   {
     title: 'Electricidad e inyección automotriz',
     type: 'Curso',
-    start: '21 oct 2026',
-    startSort: '2026-10-21',
+    start: '4 y 5 nov 2026',
+    startSort: '2026-11-04',
     duration: '3 meses',
-    days: 'Miércoles',
-    schedule: '9 a 12:30 h / 18:30 a 22 h',
+    days: 'Miércoles o jueves (según turno)',
+    schedule: 'Jue 9 a 12:30 h / Mié 18 a 22 h',
     price: '$99.900',
     enrollment: '$55.000',
     badge: 'Próximo',
-    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
+    aval: 'Certificado por Microcredenciales del Gobierno de la Ciudad',
     description: 'Especializate en electricidad, inyección y diagnóstico automotriz en solo 4 meses. Aprendé a interpretar circuitos, medir señales y detectar fallas utilizando tester, escáner, sonda lógica y osciloscopio.'
-  },
-  {
-    title: 'Electricidad e inyección de motos',
-    type: 'Curso',
-    start: '22 oct 2026',
-    startSort: '2026-10-22',
-    duration: '3 meses',
-    days: 'Jueves',
-    schedule: '9 a 12:30 h / 18:30 a 22 h',
-    price: '$99.900',
-    enrollment: '$55.000',
-    badge: 'Próximo',
-    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
-    description: 'Formate en un curso intensivo y aprendé a comprender, diagnosticar y trabajar con los sistemas eléctricos y electrónicos de las motocicletas modernas. Incorporá conocimientos prácticos para detectar fallas, realizar controles y mejorar su funcionamiento, con una capacitación orientada al mundo laboral.'
   },
   {
     title: 'Diagnóstico de Camiones',
     type: 'Curso',
-    start: '24 y 25 oct 2026',
-    startSort: '2026-10-24',
+    start: '7 y 8 nov 2026',
+    startSort: '2026-11-07',
     duration: '2 días',
     days: 'Sábado y domingo',
     schedule: 'Sáb 9 a 18 h · Dom 9 a 13 h',
     price: 'A consultar',
     enrollment: 'A consultar',
     badge: 'Intensivo',
-    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
+    aval: 'Certificado por Microcredenciales del Gobierno de la Ciudad',
     description: 'Formate en un curso intensivo y especializate en el diagnóstico de vehículos pesados. Aprendé a interpretar sistemas electrónicos, redes CAN Bus, realizar pruebas en tiempo real y detectar fallas complejas, con herramientas y conocimientos aplicados al mundo laboral.'
-  },
-  {
-    title: 'Gestión de taller automotriz',
-    type: 'Curso',
-    start: '7 y 8 nov 2026',
-    startSort: '2026-11-07',
-    duration: 'Intensivo 2 días',
-    days: 'Sábado y domingo',
-    schedule: 'Sáb 9 a 18 h · Dom 9 a 13 h',
-    price: 'A consultar',
-    enrollment: 'A consultar',
-    badge: 'Intensivo',
-    aval: 'Certificado por Microcredenciales del Ministerio de Educación Del Gobierno de la Ciudad de Buenos Aires',
-    description: 'Formate en un curso intensivo y llevá la gestión de tu taller al siguiente nivel. Aprendé a organizar órdenes de servicio y stock, definir el valor de la mano de obra, habilitar tu taller y mejorar la atención para fidelizar clientes. Herramientas de seguridad, prevención de riesgos y protección personal. Incluye 3 clases asincrónicas grabadas.'
   },
   {
     title: 'Reparación e instalación de aire acondicionado',
@@ -108,6 +94,20 @@ const courses: Course[] = [
     enrollment: '$55.000',
     aval: 'Avalado por IARAA',
     description: 'Formate combinando clases teóricas y prácticas para adquirir conocimientos en reparación e instalación de equipos de aire acondicionado. Una capacitación respaldada por más de 30 años de experiencia en el rubro.'
+  },
+  {
+    title: 'Gestión de taller automotriz',
+    type: 'Curso',
+    start: '21 y 22 nov 2026',
+    startSort: '2026-11-21',
+    duration: 'Intensivo 2 días',
+    days: 'Sábado y domingo',
+    schedule: 'Sáb 9 a 18 h · Dom 9 a 13 h',
+    price: 'A consultar',
+    enrollment: 'A consultar',
+    badge: 'Intensivo',
+    aval: 'Certificado por Microcredenciales del Gobierno de la Ciudad',
+    description: 'Formate en un curso intensivo y llevá la gestión de tu taller al siguiente nivel. Aprendé a organizar órdenes de servicio y stock, definir el valor de la mano de obra, habilitar tu taller y mejorar la atención para fidelizar clientes. Herramientas de seguridad, prevención de riesgos y protección personal. Incluye 3 clases asincrónicas grabadas.'
   },
   {
     title: 'Carrera Mecánica y Electrónica Automotriz',
@@ -144,7 +144,7 @@ const courses: Course[] = [
     startSort: '2027-09-01',
     duration: '4 meses',
     days: 'Martes',
-    schedule: 'A confirmar',
+    schedule: 'Próximamente',
     price: '$109.000',
     enrollment: '$55.000',
     aval: 'Avalado por CAIM',
@@ -232,6 +232,14 @@ const courseSlug = (title: string) =>
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
+
+const getAgendaDateParts = (start: string) => {
+  const dayMatch = start.match(/(\d{1,2})/)
+  const day = dayMatch ? dayMatch[1].padStart(2, '0') : '--'
+  const monthMatch = start.match(/(ene|feb|mar|abr|may|jun|jul|ago|sep|oct|nov|dic)/i)
+  const month = monthMatch ? monthMatch[1].toUpperCase() : 'PRÓX'
+  return { day, month }
+}
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -354,13 +362,16 @@ export default function Page() {
         </div>
         <div id="agenda" className="hero-agenda reveal reveal-delay-2">
           <div className="agenda-heading"><span>AGENDA ICAQ / 2026</span><b>Próximos comienzos</b><small>Tocá un curso para ver su ficha completa.</small></div>
-          {upcoming.map((c, i) => (
-            <button className="agenda-item" style={{ '--i': i } as React.CSSProperties} key={c.title} onClick={() => goToCourse(c)}>
-              <span className="agenda-date"><b>{c.start.slice(0, 2)}</b><small>{c.start.slice(3, 6).toUpperCase()}</small></span>
-              <span><strong>{c.title}</strong><small>{c.type} · {c.duration} · {c.days}</small></span>
-              <ArrowRight size={17} />
-            </button>
-          ))}
+          {upcoming.map((c, i) => {
+            const { day, month } = getAgendaDateParts(c.start)
+            return (
+              <button className="agenda-item" style={{ '--i': i } as React.CSSProperties} key={c.title} onClick={() => goToCourse(c)}>
+                <span className="agenda-date"><b>{day}</b><small>{month}</small></span>
+                <span><strong>{c.title}</strong><small>{c.type} · {c.duration} · {c.days}</small></span>
+                <ArrowRight size={17} />
+              </button>
+            )
+          })}
           <button className="agenda-more" onClick={() => scrollTo('propuestas')}>Ver toda la agenda <ArrowRight size={15} /></button>
         </div>
       </section>
