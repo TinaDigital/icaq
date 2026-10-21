@@ -118,7 +118,7 @@ const courses: Course[] = [
     days: 'Lunes, miércoles y viernes',
     schedule: '9 a 13 h / 18 a 22 h',
     price: '$300.000',
-    enrollment: '$165.000',
+    enrollment: '$150.000',
     badge: 'Oficial',
     aval: 'Certificado por el Ministerio de Educación',
     description: 'Formate en mecánica, electricidad, electrónica e inyección automotriz, aprendiendo a diagnosticar, reparar y mantener vehículos convencionales y modernos. Capacitación teórica y práctica, con instrumental profesional y diagnóstico electrónico.'
